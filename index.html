@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Haven | 연예인 전문 심리·영성 케어 센터</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Nanum+Myeongjo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #fbfaf6;
+            color: #2c3e2e;
+            scroll-behavior: smooth;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2, h3, .serif {
+            font-family: 'Nanum Myeongjo', serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 40vh;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container { height: 50vh; max-height: 450px; }
+        }
+        .tab-content { display: none; opacity: 0; transition: opacity 0.4s ease-in-out; }
+        .tab-content.active { display: block; opacity: 1; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-[#6b7c62] selection:text-white">
+
+    <nav class="fixed w-full z-50 glass-panel transition-all duration-300" id="navbar">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold serif text-[#6b7c62] tracking-widest">THE HAVEN</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-sm uppercase tracking-wide hover:text-[#6b7c62] transition-colors">Philosophy</a>
+                    <a href="#programs" class="text-sm uppercase tracking-wide hover:text-[#6b7c62] transition-colors">Programs</a>
+                    <a href="#space" class="text-sm uppercase tracking-wide hover:text-[#6b7c62] transition-colors">Space & Safety</a>
+                    <a href="#impact" class="text-sm uppercase tracking-wide hover:text-[#6b7c62] transition-colors">Impact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 flex items-center justify-center min-h-[80vh]">
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute -top-40 -right-40 w-96 h-96 bg-[#d4c5b9] rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+            <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-[#6b7c62] rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+        </div>
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <p class="text-sm uppercase tracking-[0.3em] text-[#6b7c62] mb-4 font-semibold">연예인 전문 심리·영성 케어 센터</p>
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">가면을 벗고,<br>진정한 안식을 누리는 곳</h1>
+            <p class="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+                대중의 시선과 평판의 압박에서 벗어나세요. 철저한 보안 속에서 성경적 원리와 예술적 도구를 통해 무너진 내면을 치유하고 단단한 자아를 회복합니다.
+            </p>
+            <a href="#about" class="inline-block px-8 py-3 bg-[#6b7c62] text-white rounded-none hover:bg-[#52604b] transition-colors duration-300 text-sm tracking-widest uppercase">
+                Discover The Haven
+            </a>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold serif mb-4">우리의 철학 (Core Values)</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">더 헤이븐은 VVIP 내담자의 특수성을 완벽히 이해하며, 안전한 환경 속에서 전인적인 회복을 돕기 위해 세 가지 핵심 가치를 지킵니다.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 border border-gray-100 hover:shadow-xl transition-shadow duration-300 bg-[#fbfaf6] group text-center rounded-sm">
+                    <div class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🤫</div>
+                    <h3 class="text-xl font-bold mb-3">Strict Confidentiality</h3>
+                    <h4 class="text-sm font-semibold text-[#6b7c62] mb-3">철저한 보안</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">일반 상담소 방문 시 발생할 수 있는 유출 우려를 원천 차단합니다. 전용 출입구와 100% 사전 예약제를 통한 1:1 프라이빗 케어를 제공합니다.</p>
+                </div>
+                <div class="p-8 border border-gray-100 hover:shadow-xl transition-shadow duration-300 bg-[#fbfaf6] group text-center rounded-sm">
+                    <div class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🌱</div>
+                    <h3 class="text-xl font-bold mb-3">Holistic Healing</h3>
+                    <h4 class="text-sm font-semibold text-[#6b7c62] mb-3">전인적 치유</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">단순한 증상 완화를 넘어, 정신(Mind), 감정(Emotion), 그리고 영성(Spirit)의 통합적 회복을 통해 근본적인 문제 해결에 접근합니다.</p>
+                </div>
+                <div class="p-8 border border-gray-100 hover:shadow-xl transition-shadow duration-300 bg-[#fbfaf6] group text-center rounded-sm">
+                    <div class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🎨</div>
+                    <h3 class="text-xl font-bold mb-3">Creative Expression</h3>
+                    <h4 class="text-sm font-semibold text-[#6b7c62] mb-3">창조적 발산</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">언어만으로는 표현하기 힘든 억눌린 고통과 감정을 음악과 미술이라는 예술적 도구(Catharsis)를 통해 건강한 에너지로 전환합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="programs" class="py-24 bg-[#fbfaf6]">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold serif mb-4">주요 프로그램</h2>
+                <p class="text-gray-600">더 헤이븐의 치료는 성경적 영성을 바탕으로 내면의 정체성을 세우고, 예술 치료를 통해 감정을 해소하는 유기적인 과정으로 구성됩니다.</p>
+            </div>
+            <div class="flex flex-wrap border-b border-gray-300 mb-8 justify-center">
+                <button class="tab-link px-6 py-4 text-sm uppercase tracking-wide font-bold text-[#6b7c62] border-b-2 border-[#6b7c62] focus:outline-none transition-colors" onclick="openProgram(event, 'prog-bible')">영성 상담</button>
+                <button class="tab-link px-6 py-4 text-sm uppercase tracking-wide text-gray-500 border-b-2 border-transparent hover:text-gray-700 focus:outline-none transition-colors" onclick="openProgram(event, 'prog-music')">음악 치료</button>
+                <button class="tab-link px-6 py-4 text-sm uppercase tracking-wide text-gray-500 border-b-2 border-transparent hover:text-gray-700 focus:outline-none transition-colors" onclick="openProgram(event, 'prog-art')">미술 치료</button>
+            </div>
+            <div class="bg-white p-8 md:p-12 shadow-sm border border-gray-100 min-h-[300px]">
+                <div id="prog-bible" class="tab-content active">
+                    <div class="flex flex-col md:flex-row gap-8 items-start">
+                        <div class="md:w-1/3 text-center md:text-left">
+                            <div class="text-5xl mb-4">📖</div>
+                            <h3 class="text-2xl font-bold serif text-[#6b7c62] mb-2">Rooted in Word</h3>
+                            <p class="text-sm font-semibold uppercase tracking-widest text-gray-400 mb-4">성경 기반 영성 상담</p>
+                        </div>
+                        <div class="md:w-2/3 text-gray-700 leading-relaxed">
+                            <ul class="space-y-4">
+                                <li><strong>정체성 회복 상담:</strong> 하나님의 자녀로서 고유한 가치 확인.</li>
+                                <li><strong>광야 세미나:</strong> 슬럼프를 영적 도약의 기회로 전환.</li>
+                                <li><strong>말씀 묵상 및 기도:</strong> 무거운 짐을 내려놓는 영혼의 안식.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Other tabs omitted for brevity, logic remains -->
+                <div id="prog-music" class="tab-content">
+                    <div class="flex flex-col md:flex-row gap-8 items-start">
+                        <div class="md:w-1/3 text-center md:text-left">
+                            <div class="text-5xl mb-4">🎵</div>
+                            <h3 class="text-2xl font-bold serif text-[#6b7c62] mb-2">Harmony of Soul</h3>
+                        </div>
+                        <div class="md:w-2/3 text-gray-700">
+                             <p>음악을 통해 내면의 상처를 치유하고 건강한 에너지를 발산합니다.</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="prog-art" class="tab-content">
+                    <div class="flex flex-col md:flex-row gap-8 items-start">
+                        <div class="md:w-1/3 text-center md:text-left">
+                            <div class="text-5xl mb-4">🖼️</div>
+                            <h3 class="text-2xl font-bold serif text-[#6b7c62] mb-2">Canvas of Grace</h3>
+                        </div>
+                        <div class="md:w-2/3 text-gray-700">
+                             <p>미술 매체를 통해 무의식 속 불안을 시각화하고 치유합니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="impact" class="py-24 bg-[#2c3e2e] text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold serif mb-12">회복의 여정</h2>
+            <div class="bg-[#fbfaf6] p-6 rounded-sm max-w-3xl mx-auto">
+                <div class="chart-container">
+                    <canvas id="recoveryChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-400 py-12 text-center text-sm">
+        <h2 class="text-2xl font-bold serif text-[#6b7c62] tracking-widest mb-2">THE HAVEN</h2>
+        <p>&copy; 2026 The Haven. All rights reserved.</p>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) nav.classList.add('shadow-md', 'bg-white/90');
+            else nav.classList.remove('shadow-md', 'bg-white/90');
+        });
+        function openProgram(evt, programName) {
+            const tabcontent = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabcontent.length; i++) tabcontent[i].classList.remove("active");
+            const tablinks = document.getElementsByClassName("tab-link");
+            for (let i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("border-[#6b7c62]", "text-[#6b7c62]", "font-bold");
+                tablinks[i].classList.add("text-gray-500", "border-transparent");
+            }
+            document.getElementById(programName).classList.add("active");
+            evt.currentTarget.classList.add("border-[#6b7c62]", "text-[#6b7c62]", "font-bold");
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctx = document.getElementById('recoveryChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['입소 전', '초기', '중기', '후기', '복귀'],
+                    datasets: [
+                        { label: '번아웃 지수', data: [85, 70, 45, 25, 10], borderColor: '#a39171', tension: 0.4 },
+                        { label: '회복 탄력성', data: [20, 40, 65, 85, 95], borderColor: '#6b7c62', tension: 0.4 }
+                    ]
+                },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+        });
+    </script>
+</body>
+</html>
