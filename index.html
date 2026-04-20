@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Haven | 연예인 전문 심리·영성 케어 센터</title>
+    <title>The PRIVE HEALING CENTER | 연예인 전문 심리·영성 케어 센터</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Nanum+Myeongjo:wght@400;700&display=swap" rel="stylesheet">
@@ -15,6 +15,7 @@
             scroll-behavior: smooth;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
         h1, h2, h3, .serif {
             font-family: 'Nanum Myeongjo', serif;
@@ -25,7 +26,7 @@
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-            height: 40vh;
+            height: 35vh;
             max-height: 400px;
         }
         @media (min-width: 768px) {
@@ -34,9 +35,9 @@
         .tab-content { display: none; opacity: 0; transition: opacity 0.4s ease-in-out; }
         .tab-content.active { display: block; opacity: 1; }
         .glass-panel {
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-b: 1px solid rgba(255, 255, 255, 0.3);
         }
         .img-placeholder {
             background-color: #e5e7eb;
@@ -44,7 +45,7 @@
             align-items: center;
             justify-content: center;
             color: #9ca3af;
-            border-radius: 4px;
+            border-radius: 8px;
             overflow: hidden;
             position: relative;
         }
@@ -61,17 +62,28 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        /* Mobile Nav Transition */
+        #mobile-menu {
+            transition: all 0.3s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+        }
+        #mobile-menu.open {
+            max-height: 400px;
+            padding-bottom: 2rem;
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-[#6b7c62] selection:text-white">
 
     <!-- 상단 네비게이션 -->
-    <nav class="fixed w-full z-50 glass-panel transition-all duration-300 border-b border-gray-100" id="navbar">
+    <nav class="fixed w-full z-50 glass-panel transition-all duration-300" id="navbar">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex-shrink-0">
-                    <a href="#" class="text-2xl font-bold serif text-[#6b7c62] tracking-widest">THE HAVEN</a>
+                    <a href="#" class="text-xl md:text-2xl font-bold serif text-[#6b7c62] tracking-widest">THE HAVEN</a>
                 </div>
+                <!-- PC 메뉴 -->
                 <div class="hidden md:flex space-x-8">
                     <a href="#about" class="text-sm uppercase tracking-wide hover:text-[#6b7c62] transition-colors">Philosophy</a>
                     <a href="#programs" class="text-sm uppercase tracking-wide hover:text-[#6b7c62] transition-colors">Programs</a>
@@ -79,32 +91,50 @@
                     <a href="#space" class="text-sm uppercase tracking-wide hover:text-[#6b7c62] transition-colors">Safety</a>
                     <a href="#impact" class="text-sm uppercase tracking-wide hover:text-[#6b7c62] transition-colors">Impact</a>
                 </div>
+                <!-- 모바일 메뉴 버튼 -->
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-[#6b7c62] focus:outline-none">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- 모바일 드롭다운 메뉴 -->
+            <div id="mobile-menu" class="md:hidden bg-white/95">
+                <div class="flex flex-col space-y-4 px-2 pt-2">
+                    <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-[#6b7c62]">Philosophy</a>
+                    <a href="#programs" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-[#6b7c62]">Programs</a>
+                    <a href="#inside" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-[#6b7c62]">Inside</a>
+                    <a href="#space" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-[#6b7c62]">Safety</a>
+                    <a href="#impact" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-[#6b7c62]">Impact</a>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- 메인 히어로 섹션 -->
-    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 flex items-center justify-center min-h-screen">
+    <section class="relative pt-32 pb-16 md:pt-48 md:pb-32 flex items-center justify-center min-h-screen px-4">
         <div class="absolute inset-0 overflow-hidden pointer-events-none">
             <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 bg-[#6b7c62] mix-blend-multiply filter blur-3xl"></div>
             <div class="absolute bottom-0 left-0 w-1/3 h-1/2 opacity-10 bg-[#d4c5b9] mix-blend-multiply filter blur-3xl"></div>
         </div>
-        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-12 relative z-10">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-12 relative z-10">
             <div class="md:w-1/2 text-center md:text-left fade-in">
-                <p class="text-sm uppercase tracking-[0.3em] text-[#6b7c62] mb-4 font-semibold italic">A Sanctuary for Public Figures</p>
-                <h1 class="text-4xl md:text-6xl font-bold mb-8 leading-tight serif">가면을 벗고,<br>진정한 안식을 누리는 곳</h1>
-                <p class="text-lg text-gray-600 mb-10 leading-relaxed">
-                    대중의 환호 뒤에 숨겨진 공허함과 압박에서 잠시 벗어나세요. <br>
-                    더 헤이븐은 영적 회복과 예술적 치유를 통해 <br>
+                <p class="text-xs md:text-sm uppercase tracking-[0.2em] md:tracking-[0.3em] text-[#6b7c62] mb-4 font-semibold italic">A Sanctuary for Public Figures</p>
+                <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 md:mb-8 leading-tight serif">가면을 벗고,<br>진정한 안식을 누리는 곳</h1>
+                <p class="text-base md:text-lg text-gray-600 mb-8 md:mb-10 leading-relaxed max-w-lg mx-auto md:mx-0">
+                    대중의 환호 뒤에 숨겨진 공허함과 압박에서 잠시 벗어나세요. <br class="hidden md:block">
+                    더 헤이븐은 영적 회복과 예술적 치유를 통해 <br class="hidden md:block">
                     당신의 가장 본질적인 아름다움을 다시 찾아드립니다.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                    <a href="#about" class="px-8 py-4 bg-[#6b7c62] text-white tracking-widest text-sm uppercase hover:bg-[#52604b] transition-all">Discover Philosophy</a>
-                    <a href="#programs" class="px-8 py-4 border border-[#6b7c62] text-[#6b7c62] tracking-widest text-sm uppercase hover:bg-[#6b7c62] hover:text-white transition-all">View Programs</a>
+                    <a href="#about" class="px-8 py-3 md:py-4 bg-[#6b7c62] text-white tracking-widest text-xs md:text-sm uppercase hover:bg-[#52604b] transition-all text-center">Discover Philosophy</a>
+                    <a href="#programs" class="px-8 py-3 md:py-4 border border-[#6b7c62] text-[#6b7c62] tracking-widest text-xs md:text-sm uppercase hover:bg-[#6b7c62] hover:text-white transition-all text-center">View Programs</a>
                 </div>
             </div>
-            <div class="md:w-1/2 fade-in">
-                <div class="img-placeholder h-[400px] md:h-[500px] shadow-2xl rounded-lg">
+            <div class="w-full md:w-1/2 fade-in">
+                <div class="img-placeholder h-[300px] sm:h-[400px] md:h-[500px] shadow-2xl">
                     <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=1000" alt="Meditation Sanctuary">
                 </div>
             </div>
@@ -112,94 +142,94 @@
     </section>
 
     <!-- 철학 섹션 -->
-    <section id="about" class="py-32 bg-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-bold serif mb-6">우리의 철학</h2>
-            <div class="w-16 h-1 bg-[#d4c5b9] mx-auto mb-12"></div>
-            <div class="grid md:grid-cols-3 gap-12 mt-20">
-                <div class="space-y-6">
-                    <div class="w-20 h-20 bg-[#fbfaf6] rounded-full flex items-center justify-center mx-auto text-3xl">🤫</div>
-                    <h3 class="text-xl font-bold serif">철저한 보안</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed px-4">전용 독립 동선 시스템으로 외부 노출을 완벽 차단합니다.</p>
+    <section id="about" class="py-20 md:py-32 bg-white px-4">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-2xl md:text-3xl font-bold serif mb-6">우리의 철학</h2>
+            <div class="w-12 md:w-16 h-1 bg-[#d4c5b9] mx-auto mb-16 md:mb-20"></div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="space-y-4 md:space-y-6">
+                    <div class="w-16 h-16 md:w-20 md:h-20 bg-[#fbfaf6] rounded-full flex items-center justify-center mx-auto text-2xl md:text-3xl">🤫</div>
+                    <h3 class="text-lg md:text-xl font-bold serif">철저한 보안</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed px-2 md:px-4">전용 독립 동선 시스템으로 외부 노출을 완벽 차단합니다.</p>
                 </div>
-                <div class="space-y-6">
-                    <div class="w-20 h-20 bg-[#fbfaf6] rounded-full flex items-center justify-center mx-auto text-3xl">🌱</div>
-                    <h3 class="text-xl font-bold serif">전인적 치유</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed px-4">영성과 심리를 통합하여 삶의 본질적 회복을 돕습니다.</p>
+                <div class="space-y-4 md:space-y-6">
+                    <div class="w-16 h-16 md:w-20 md:h-20 bg-[#fbfaf6] rounded-full flex items-center justify-center mx-auto text-2xl md:text-3xl">🌱</div>
+                    <h3 class="text-lg md:text-xl font-bold serif">전인적 치유</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed px-2 md:px-4">영성과 심리를 통합하여 삶의 본질적 회복을 돕습니다.</p>
                 </div>
-                <div class="space-y-6">
-                    <div class="w-20 h-20 bg-[#fbfaf6] rounded-full flex items-center justify-center mx-auto text-3xl">🎨</div>
-                    <h3 class="text-xl font-bold serif">창조적 발산</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed px-4">음악과 미술을 도구로 억눌린 감정을 건강하게 해소합니다.</p>
+                <div class="space-y-4 md:space-y-6">
+                    <div class="w-16 h-16 md:w-20 md:h-20 bg-[#fbfaf6] rounded-full flex items-center justify-center mx-auto text-2xl md:text-3xl">🎨</div>
+                    <h3 class="text-lg md:text-xl font-bold serif">창조적 발산</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed px-2 md:px-4">음악과 미술을 도구로 억눌린 감정을 건강하게 해소합니다.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 프로그램 섹션 -->
-    <section id="programs" class="py-32 bg-[#fbfaf6]">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold serif mb-6">치유를 위한 정교한 설계</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">더 헤이븐의 프로그램은 각 분야 전문가들이 협업하여 연예계 생활의 특수한 스트레스를 효과적으로 케어합니다.</p>
+    <section id="programs" class="py-20 md:py-32 bg-[#fbfaf6] px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold serif mb-4 md:mb-6">치유를 위한 정교한 설계</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-sm md:text-base">각 분야 전문가들이 협업하여 연예계 생활의 특수한 스트레스를 효과적으로 케어합니다.</p>
             </div>
 
-            <!-- 탭 메뉴 (요청하신 이전 스타일) -->
-            <div class="flex flex-wrap border-b border-gray-300 mb-12 justify-center">
-                <button class="tab-link px-8 py-4 text-sm uppercase tracking-widest font-bold text-[#6b7c62] border-b-2 border-[#6b7c62] focus:outline-none transition-all" onclick="openProgram(event, 'prog-bible')">영성 상담</button>
-                <button class="tab-link px-8 py-4 text-sm uppercase tracking-widest text-gray-500 border-b-2 border-transparent hover:text-gray-700 focus:outline-none transition-all" onclick="openProgram(event, 'prog-music')">음악 치료</button>
-                <button class="tab-link px-8 py-4 text-sm uppercase tracking-widest text-gray-500 border-b-2 border-transparent hover:text-gray-700 focus:outline-none transition-all" onclick="openProgram(event, 'prog-art')">미술 치료</button>
+            <!-- 모바일 대응 탭 메뉴 (스크롤 가능) -->
+            <div class="flex overflow-x-auto md:overflow-visible border-b border-gray-300 mb-8 md:mb-12 justify-start md:justify-center whitespace-nowrap scrollbar-hide">
+                <button class="tab-link flex-shrink-0 px-6 md:px-8 py-3 md:py-4 text-xs md:text-sm uppercase tracking-widest font-bold text-[#6b7c62] border-b-2 border-[#6b7c62] focus:outline-none transition-all" onclick="openProgram(event, 'prog-bible')">영성 상담</button>
+                <button class="tab-link flex-shrink-0 px-6 md:px-8 py-3 md:py-4 text-xs md:text-sm uppercase tracking-widest text-gray-500 border-b-2 border-transparent hover:text-gray-700 focus:outline-none transition-all" onclick="openProgram(event, 'prog-music')">음악 치료</button>
+                <button class="tab-link flex-shrink-0 px-6 md:px-8 py-3 md:py-4 text-xs md:text-sm uppercase tracking-widest text-gray-500 border-b-2 border-transparent hover:text-gray-700 focus:outline-none transition-all" onclick="openProgram(event, 'prog-art')">미술 치료</button>
             </div>
 
-            <div class="bg-white p-8 md:p-16 shadow-lg border border-gray-100 rounded-lg min-h-[450px]">
+            <div class="bg-white p-6 md:p-16 shadow-lg border border-gray-100 rounded-lg min-h-[400px]">
                 <!-- 영성 상담 -->
                 <div id="prog-bible" class="tab-content active">
-                    <div class="flex flex-col lg:flex-row gap-12">
+                    <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
                         <div class="lg:w-1/2">
-                            <div class="img-placeholder h-[350px] mb-8 shadow-md">
+                            <div class="img-placeholder h-[250px] md:h-[350px] mb-6 md:mb-8 shadow-md">
                                 <img src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&q=80&w=1000" alt="영성 상담">
                             </div>
-                            <h3 class="text-2xl font-bold serif text-[#6b7c62] mb-4">Rooted in Word</h3>
-                            <p class="text-gray-700 leading-relaxed mb-6">성경적 원리에 기반하여 단단하게 재건된 자아를 만납니다.</p>
+                            <h3 class="text-xl md:text-2xl font-bold serif text-[#6b7c62] mb-4">Rooted in Word</h3>
+                            <p class="text-sm md:text-base text-gray-700 leading-relaxed mb-6">성경적 원리에 기반하여 단단하게 재건된 자아를 만납니다.</p>
                         </div>
-                        <div class="lg:w-1/2 space-y-6 text-gray-600">
-                            <p>● 하나님의 자녀로서의 고유한 가치 확인</p>
-                            <p>● 슬럼프를 영적 도약의 기회로 재해석</p>
-                            <p>● 하나님 앞에서의 온전한 안식과 회복</p>
+                        <div class="lg:w-1/2 space-y-4 md:space-y-6 text-sm md:text-base text-gray-600">
+                            <p class="flex items-start"><span class="text-[#6b7c62] mr-2">●</span> 하나님의 자녀로서의 고유한 가치 확인</p>
+                            <p class="flex items-start"><span class="text-[#6b7c62] mr-2">●</span> 슬럼프를 영적 도약의 기회로 재해석</p>
+                            <p class="flex items-start"><span class="text-[#6b7c62] mr-2">●</span> 하나님 앞에서의 온전한 안식과 회복</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- 음악 치료 -->
                 <div id="prog-music" class="tab-content">
-                    <div class="flex flex-col lg:flex-row gap-12">
+                    <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
                         <div class="lg:w-1/2">
-                            <div class="img-placeholder h-[350px] mb-8 shadow-md">
+                            <div class="img-placeholder h-[250px] md:h-[350px] mb-6 md:mb-8 shadow-md">
                                 <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&q=80&w=1000" alt="음악 치료">
                             </div>
-                            <h3 class="text-2xl font-bold serif text-[#6b7c62] mb-4">Harmony of Soul</h3>
+                            <h3 class="text-xl md:text-2xl font-bold serif text-[#6b7c62] mb-4">Harmony of Soul</h3>
                         </div>
-                        <div class="lg:w-1/2 space-y-6 text-gray-600">
-                            <p>● 음악을 통한 감정의 카타르시스 경험</p>
-                            <p>● 호흡과 발성을 통한 신체적 안정화</p>
-                            <p>● 창조적 송라이팅을 통한 내면의 표출</p>
+                        <div class="lg:w-1/2 space-y-4 md:space-y-6 text-sm md:text-base text-gray-600">
+                            <p class="flex items-start"><span class="text-[#6b7c62] mr-2">●</span> 음악을 통한 감정의 카타르시스 경험</p>
+                            <p class="flex items-start"><span class="text-[#6b7c62] mr-2">●</span> 호흡과 발성을 통한 신체적 안정화</p>
+                            <p class="flex items-start"><span class="text-[#6b7c62] mr-2">●</span> 창조적 송라이팅을 통한 내면의 표출</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- 미술 치료 -->
                 <div id="prog-art" class="tab-content">
-                    <div class="flex flex-col lg:flex-row gap-12">
+                    <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
                         <div class="lg:w-1/2">
-                            <div class="img-placeholder h-[350px] mb-8 shadow-md">
+                            <div class="img-placeholder h-[250px] md:h-[350px] mb-6 md:mb-8 shadow-md">
                                 <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=1000" alt="미술 치료">
                             </div>
-                            <h3 class="text-2xl font-bold serif text-[#6b7c62] mb-4">Canvas of Grace</h3>
+                            <h3 class="text-xl md:text-2xl font-bold serif text-[#6b7c62] mb-4">Canvas of Grace</h3>
                         </div>
-                        <div class="lg:w-1/2 space-y-6 text-gray-600">
-                            <p>● 시각 매체를 통한 무의식적 불안의 시각화</p>
-                            <p>● 페르소나와 실제 자아 사이의 화해</p>
-                            <p>● 심리적 안전지대 구축 및 안정감 획득</p>
+                        <div class="lg:w-1/2 space-y-4 md:space-y-6 text-sm md:text-base text-gray-600">
+                            <p class="flex items-start"><span class="text-[#6b7c62] mr-2">●</span> 시각 매체를 통한 무의식적 불안의 시각화</p>
+                            <p class="flex items-start"><span class="text-[#6b7c62] mr-2">●</span> 페르소나와 실제 자아 사이의 화해</p>
+                            <p class="flex items-start"><span class="text-[#6b7c62] mr-2">●</span> 심리적 안전지대 구축 및 안정감 획득</p>
                         </div>
                     </div>
                 </div>
@@ -208,35 +238,35 @@
     </section>
 
     <!-- 내부 갤러리 (Inside) -->
-    <section id="inside" class="py-32 bg-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-bold serif mb-16">Inside The Haven</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <section id="inside" class="py-20 md:py-32 bg-white px-4">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-2xl md:text-3xl font-bold serif mb-12 md:mb-16">Inside The Haven</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- 개별 프라이빗 룸 -->
-                <div class="space-y-4">
-                    <div class="img-placeholder h-64 rounded-lg shadow-md overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&q=80&w=1000" alt="Private Suite">
+                <div class="group">
+                    <div class="img-placeholder h-56 md:h-64 rounded-lg shadow-md overflow-hidden mb-3">
+                        <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&q=80&w=1000" alt="Private Suite" class="group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <p class="text-sm font-bold serif text-gray-700">개별 프라이빗 룸</p>
                 </div>
                 <!-- 하늘 정원 -->
-                <div class="space-y-4 md:mt-12">
-                    <div class="img-placeholder h-64 rounded-lg shadow-md overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=1000" alt="Sky Garden">
+                <div class="group sm:mt-8 md:mt-12 lg:mt-12">
+                    <div class="img-placeholder h-56 md:h-64 rounded-lg shadow-md overflow-hidden mb-3">
+                        <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=1000" alt="Sky Garden" class="group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <p class="text-sm font-bold serif text-gray-700">하늘 정원 (Meditation)</p>
                 </div>
                 <!-- 음악 치유 스튜디오 -->
-                <div class="space-y-4">
-                    <div class="img-placeholder h-64 rounded-lg shadow-md overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=1000" alt="Music Studio">
+                <div class="group sm:mt-0 md:mt-0 lg:mt-0">
+                    <div class="img-placeholder h-56 md:h-64 rounded-lg shadow-md overflow-hidden mb-3">
+                        <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=1000" alt="Music Studio" class="group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <p class="text-sm font-bold serif text-gray-700">음악 치유 스튜디오</p>
                 </div>
                 <!-- 미술 아틀리에 -->
-                <div class="space-y-4 md:mt-12">
-                    <div class="img-placeholder h-64 rounded-lg shadow-md overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=1000" alt="Art Atelier">
+                <div class="group sm:mt-8 md:mt-12 lg:mt-12">
+                    <div class="img-placeholder h-56 md:h-64 rounded-lg shadow-md overflow-hidden mb-3">
+                        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=1000" alt="Art Atelier" class="group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <p class="text-sm font-bold serif text-gray-700">미술 아틀리에</p>
                 </div>
@@ -245,28 +275,32 @@
     </section>
 
     <!-- 운영 및 프라이버시 (Safety) -->
-    <section id="space" class="py-32 bg-[#fbfaf6]">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold serif mb-16 text-center">안전한 안식처 (Safety)</h2>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="bg-white p-10 rounded-xl shadow-sm border border-gray-100">
-                    <h3 class="text-xl font-bold mb-6 text-[#6b7c62]">🛡️ 보안 시스템</h3>
+    <section id="space" class="py-20 md:py-32 bg-[#fbfaf6] px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-bold serif mb-12 md:mb-16 text-center">안전한 안식처 (Safety)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                <div class="bg-white p-8 md:p-10 rounded-xl shadow-sm border border-gray-100">
+                    <h3 class="text-lg md:text-xl font-bold mb-4 md:mb-6 text-[#6b7c62] flex items-center">
+                        <span class="mr-3">🛡️</span> 보안 시스템
+                    </h3>
                     <p class="text-gray-600 text-sm leading-relaxed">전용 엘리베이터와 독립 동선, 데이터 영구 파기 정책으로 내담자의 사생활을 완벽히 보호합니다.</p>
                 </div>
-                <div class="bg-white p-10 rounded-xl shadow-sm border border-gray-100">
-                    <h3 class="text-xl font-bold mb-6 text-[#6b7c62]">👨‍⚕️ 전문가 네트워크</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">목회 상담 전문가, 공인 예술 치료사, 임상 심리사가 한 팀을 이루어 통합적인 케어를 제공합니다.</p>
+                <div class="bg-white p-8 md:p-10 rounded-xl shadow-sm border border-gray-100">
+                    <h3 class="text-lg md:text-xl font-bold mb-4 md:mb-6 text-[#6b7c62] flex items-center">
+                        <span class="mr-3">👨‍⚕️</span> 전문가 네트워크
+                    </h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">미국 현지 치료사, 공인 예술 치료사, 목회자가 한 팀을 이루어 통합적인 케어를 제공합니다.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 기대 효과 -->
-    <section id="impact" class="py-32 bg-[#2c3e2e] text-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-bold serif mb-12">치유의 결과</h2>
-            <div class="bg-[#fbfaf6] p-8 md:p-12 rounded-lg shadow-2xl max-w-4xl mx-auto">
-                <h3 class="text-[#2c3e2e] font-bold mb-8 text-xl serif">더 헤이븐 프로그램 회복 지표</h3>
+    <section id="impact" class="py-20 md:py-32 bg-[#2c3e2e] text-white px-4">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-2xl md:text-3xl font-bold serif mb-10 md:mb-12">치유의 결과</h2>
+            <div class="bg-[#fbfaf6] p-4 md:p-12 rounded-lg shadow-2xl max-w-4xl mx-auto">
+                <h3 class="text-[#2c3e2e] font-bold mb-6 md:mb-8 text-lg md:text-xl serif">더 헤이븐 프로그램 회복 지표</h3>
                 <div class="chart-container">
                     <canvas id="recoveryChart"></canvas>
                 </div>
@@ -275,17 +309,34 @@
     </section>
 
     <!-- 푸터 -->
-    <footer class="bg-gray-900 text-gray-400 py-20 text-center text-sm">
-        <h2 class="text-2xl font-bold serif text-[#6b7c62] tracking-widest mb-6">THE HAVEN</h2>
+    <footer class="bg-gray-900 text-gray-400 py-16 md:py-20 text-center text-xs md:text-sm px-4">
+        <h2 class="text-xl md:text-2xl font-bold serif text-[#6b7c62] tracking-widest mb-6">THE HAVEN</h2>
+        <p class="mb-2">연예인 전문 심리·영성 케어 센터</p>
         <p>&copy; 2026 The Haven. All rights reserved.</p>
     </footer>
 
     <script>
+        // 모바일 메뉴 토글
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+
+        // 메뉴 클릭 시 모바일 메뉴 닫기
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+
         // 네비게이션 스크롤 효과
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) nav.classList.add('shadow-md', 'bg-white/90');
-            else nav.classList.remove('shadow-md', 'bg-white/90');
+            if (window.scrollY > 50) nav.classList.add('shadow-md', 'bg-white/95');
+            else nav.classList.remove('shadow-md', 'bg-white/95');
         });
 
         // 탭 전환 로직
@@ -302,6 +353,9 @@
             document.getElementById(programName).classList.add("active");
             evt.currentTarget.classList.remove("text-gray-500", "border-transparent");
             evt.currentTarget.classList.add("border-[#6b7c62]", "text-[#6b7c62]");
+            
+            // 탭 클릭 시 중앙으로 스크롤 (모바일 대응)
+            evt.currentTarget.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
         }
 
         // 차트 초기화
@@ -312,15 +366,27 @@
                 data: {
                     labels: ['입소 전', '초기', '중기', '후기', '복귀'],
                     datasets: [
-                        { label: '번아웃 지수', data: [90, 75, 45, 20, 10], borderColor: '#a39171', tension: 0.4 },
-                        { label: '회복 탄력성', data: [15, 30, 60, 85, 95], borderColor: '#6b7c62', tension: 0.4 }
+                        { label: '번아웃 지수', data: [90, 75, 45, 20, 10], borderColor: '#a39171', backgroundColor: 'rgba(163, 145, 113, 0.1)', fill: true, tension: 0.4 },
+                        { label: '회복 탄력성', data: [15, 30, 60, 85, 95], borderColor: '#6b7c62', backgroundColor: 'rgba(107, 124, 98, 0.1)', fill: true, tension: 0.4 }
                     ]
                 },
                 options: { 
                     responsive: true, 
                     maintainAspectRatio: false,
                     scales: {
-                        y: { max: 100, beginAtZero: true }
+                        y: { 
+                            max: 100, 
+                            beginAtZero: true,
+                            ticks: { font: { size: 10 } }
+                        },
+                        x: {
+                            ticks: { font: { size: 10 } }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { font: { size: 11 } }
+                        }
                     }
                 }
             });
